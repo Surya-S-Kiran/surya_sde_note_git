@@ -1,0 +1,20 @@
+1) if project is not alraedy in remote branch, to initialize the project
+=> 
+    1) git init
+    2) carete new repo on github and copy https remote link <url> of the new repo
+    run => git remote add <url>
+    3) add the files 
+       => git add .
+    4) commit in
+       => git commit -m "msg"
+    5) push it to remote
+
+
+2) branch commands
+      to see the list of branches
+   => git branch 
+      
+      to see the list of remote branches
+   => git branch -r
+
+3) 

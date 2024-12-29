@@ -1,0 +1,33 @@
+file releted commands:
+
+1) to craete a file :
+    touch filename.txt 
+        or 
+   use text editor such as nano, vim, gedit
+   nano filename.txt
+
+2) to craete a folder
+  mkdir foldername
+
+3) read commands:
+cat filename.txt
+nano filename.txt
+
+4) list all files
+ls 
+ls -l (detailed)
+ls -a (includes hidden files)
+
+5) delete 
+rm -r folder //to delete the folder
+rm filename.txt //to delete the file
+
+6) rename
+mv oldname.txt newname.txt
+mv oldfoldername newfoldername
+
+7) move one place to another
+mv filename.txy path/to/destination
+mv foldername path/to/destination
+
+
