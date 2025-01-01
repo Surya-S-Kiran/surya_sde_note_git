@@ -1,7 +1,8 @@
 1) if project is not alraedy in remote branch, to initialize the project
 => 
     1) git init
-    2) carete new repo on github and copy https remote link <url> of the new repo
+    2) carete new repo on github and copy https remote link <url> of the new repo, dont 
+    mark on craete readme file option
     run => git remote add <url>
     3) add the files 
        => git add .
@@ -17,4 +18,24 @@
       to see the list of remote branches
    => git branch -r
 
-3) 
+3)  Git, origin is the default name given to the remote repository 
+from which you cloned your local repository.
+It acts as a shorthand reference to the remote repository URL.
+
+git pull origin main
+
+git pull -> fetch changes from remote + merges them into curr branch
+origin : default remote repository
+main : branch to pull from
+
+4) configure git:
+git config --global user.name "surya"
+git config --global user.gmail "surya@gmail.com"
+
+5) stagging:
+files that are ready to commit 
+git add filename1 filename2
+git add . (to add all)
+
+
+

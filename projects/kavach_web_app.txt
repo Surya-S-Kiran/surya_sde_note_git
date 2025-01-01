@@ -1,0 +1,57 @@
+Project overview:
+Kavach is complete safety management and incident reporting software which provide 
+feature such as safety releted form reporting for employees, closing the safety report
+for safety managers and ISO based Auditing to the auditors, traning exam assignment.
+The main goal of this software is to digitalize the safety management process for 
+manufacturing industry and visilize the data in the various charts.Also avoid manual process
+of updating large excel sheet, making charts using them , auditiong , its provide all 
+the process in a single software.
+
+Problem statement:
+to design robust role based access control for admin,  employee and safety managers.
+//to design eficient database schema so that query will be efficient.
+Firebase schema to reduce database read count.
+to provide innovative solution which will lead to productivity and align with bussiness rules.
+
+proposed solution:
+role based access control: 
+frontend: hasPermission function, Protected Route named HOF
+backend: checkRole custom middleware
+reduce read count:
+Data structuring(hierarchial design + denormalization)
+Query Optimization(compound indexes)
+redux thunk, in memory chaching from backend
+
+my role:
+my role to design role based access control, redsign the firebase schema so that 
+its easy to retrive data, implement subcription based payment gateway,
+implemeting various charts for data visulization such as bar , stacked bar, line , radar charts.
+Continueasly meeting with client to work on updates and feedback. PDF export and excel sheet export
+
+technologies and tools:
+for rabc : react , node 
+for firebase schema design : redux thunk
+PDF export : jsPdf, html2canvas library
+chart implementation: chart.js, D3.js
+Export as excel : xlxs libary
+subscription based payment gateway : cloud function, node js, razorpay checkout API, react js
+
+For rest api : axious, express
+
+Impact and achievements:
+for export option that i have suggested to team increses to client conversion 30%,
+for radar chart option I got appretation from client because it made visulaization very easy,
+successfully able to reduce the read count by 40% after redsigning the schema and adding
+caching functionaliy.
+
+Team Collabration:
+In this project i was leading the team group of 3 people, my task was more on productivity how we 
+can achive more productivity on this app, also added some crucial feature such as export pdf and excel sheet
+option and implemented complex charts, integration of claud function.
+
+learning and developement:
+In this project i have learned project management skills, also got familiar with redux thunk, D3.js,
+payment gateway, claud function.
+
+
+

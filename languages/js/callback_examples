@@ -1,0 +1,52 @@
+
+// basic callback examples
+ 
+    const greet = (msg,callback) => {
+        console.log(`hello, ${msg}`);
+        callback();
+    }
+    const hello = (msg) => {
+        console.log("how are you?");
+    }
+
+    greet("surya",hello);
+
+//another example of callback
+
+    const greet1 = (msg,callback) => {
+        const err = (error) => {
+            callback("this is error",null);
+        }
+        const res = () => {
+            callback(null,`hello, ${msg}`);
+        }
+        let isError = false;
+        if (isError){
+            err();
+        }else{
+            res();
+        }
+    }
+
+    greet1("surya",(err, res) => {
+        if (err){
+            console.log(err);
+        }else{
+            console.log(`${res}.\nhow are you?`);
+        }
+    });
+
+//callback example with setTimeout
+
+    const fun1 = (callback) => {
+        console.log("data is fetching..");
+        setTimeout(() => {
+            callback("data fetched");
+        },1000);
+    }
+    const fun2 = (res) => {
+        console.log("results : ",res);
+    }
+    fun1(fun2);
+
+

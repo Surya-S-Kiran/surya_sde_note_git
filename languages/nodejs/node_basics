@@ -1,0 +1,156 @@
+=> Python and Node.js (15 Questions)
+Explain the Global Interpreter Lock (GIL) in Python.
+  it is mutex, preventing multiple threds to run python bytecode. ensures thread safty but restricts 
+  multiprocessing.
+
+-> Write a function in Python to check if a string is a palindrome.
+    def is_palindrome(s):
+        return s == s[::-1]
+
+Explain the event loop in Node.js.
+
+->Create a simple HTTP server in Node.js.
+
+    const http = require('http');
+    const server = http.createServer((req, res) => {
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.end('Hello, World!');
+    });
+    server.listen(3000, () => console.log('Server running on port 3000'));
+
+-> Write a Python program to find the factorial of a number using recursion.
+  def fact(n):
+    if n == 0:
+      return 1
+    return n * fact(n-1) 
+
+-> Create an Express.js middleware to log all incoming requests.
+
+    const logger = (req, res, next) => {
+        console.log(`${req.method} ${req.url}`);
+        next();
+    };
+    app.use(logger);
+
+-> How do you handle asynchronous programming in Node.js?
+
+-> Explain the difference between var, let, and const in JavaScript.
+
+-> Write a Python script to fetch data from a REST API using requests.
+
+    import requests
+    response = requests.get('https://jsonplaceholder.typicode.com/posts')
+    print(response.json())
+
+What are closures in JavaScript? Provide an example.
+Write a Python function to merge two sorted lists.
+Explain the difference between synchronous and asynchronous code.
+How does Python manage memory for objects?
+Implement a function in Node.js to read a file using fs.promises.
+What is the difference between require and import in Node.js?
+
+
+REST API Design and Implementation (15 Questions)
+What are the key principles of REST API design?
+Write an API in Node.js to fetch user details.
+javascript
+Copy code
+app.get('/users/:id', (req, res) => {
+    const userId = req.params.id;
+    res.json({ id: userId, name: 'John Doe' });
+});
+Explain the HTTP methods used in REST APIs (GET, POST, PUT, DELETE).
+What are status codes in REST APIs? Explain with examples.
+Write a Python Flask API to return "Hello, World!".
+python
+Copy code
+from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def hello_world():
+    return "Hello, World!"
+if __name__ == '__main__':
+    app.run(debug=True)
+How do you handle errors in a REST API?
+Explain the concept of pagination in APIs. Provide an example.
+What is rate limiting? Why is it important in APIs?
+How would you secure a REST API? Mention at least 3 methods.
+Write a Node.js API to create a new user in MongoDB.
+How do you handle versioning in REST APIs?
+What is CORS? How do you enable it in Express.js?
+Explain idempotence in the context of REST APIs.
+What are the advantages of using Swagger for API documentation?
+Write an API to update user details using Python and Flask.
+Databases and ORM Principles (20 Questions)
+What is the difference between SQL and NoSQL databases?
+Explain normalization and its types.
+Write a query to fetch all employees whose salary is greater than 50,000.
+sql
+Copy code
+SELECT * FROM employees WHERE salary > 50000;
+What is an index? How does it improve query performance?
+Write a Node.js script to connect to a MongoDB database.
+javascript
+Copy code
+const { MongoClient } = require('mongodb');
+const uri = 'mongodb://localhost:27017';
+const client = new MongoClient(uri);
+client.connect().then(() => console.log('Connected to MongoDB'));
+Explain transactions in databases with an example.
+How would you optimize a slow SQL query?
+Write a query to find duplicate records in a table.
+sql
+Copy code
+SELECT name, COUNT(*) FROM users GROUP BY name HAVING COUNT(*) > 1;
+What is an ORM? Explain its benefits.
+Write a Sequelize model for a User table.
+javascript
+Copy code
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = new Sequelize('sqlite::memory:');
+const User = sequelize.define('User', {
+    username: { type: DataTypes.STRING, allowNull: false },
+    email: { type: DataTypes.STRING, allowNull: false },
+});
+How do you implement relationships in Sequelize?
+Explain the difference between INNER JOIN and LEFT JOIN.
+What is the ACID property of transactions?
+Write a SQL query to fetch the second-highest salary.
+How do you handle migrations in databases?
+Write a Python script to perform a CRUD operation in PostgreSQL.
+What are stored procedures and when should you use them?
+What is sharding in NoSQL databases?
+Write a MongoDB query to find all users with age > 30.
+Explain connection pooling in databases.
+Web Security Principles (10 Questions)
+What is SQL Injection? How do you prevent it?
+Explain Cross-Site Scripting (XSS) and its prevention.
+How does HTTPS work?
+What is CSRF? How can you protect your application?
+Explain the concept of JWT and its use cases.
+Write a middleware to validate JWT tokens in Node.js.
+What is the Same-Origin Policy?
+What are some common web security headers?
+How do you implement authentication in a REST API?
+What is the role of encryption in securing sensitive data?
+System Design and Microservices (20 Questions)
+Design a URL shortening service like Bitly.
+What is the difference between monolithic and microservices architecture?
+How do you design a scalable chat application?
+Explain the role of a message queue in a distributed system.
+Write a Node.js example to send a message to a RabbitMQ queue.
+What are the benefits of using Docker in microservices?
+Design a real-time ride-hailing system.
+What is API Gateway? How does it work?
+How do you handle data consistency in microservices?
+What are the challenges of using microservices?
+Design a rate-limiting feature for an API.
+How would you design a notification system?
+Explain eventual consistency with examples.
+What is Circuit Breaker in microservices?
+How do you implement inter-service communication?
+What are the best practices for logging in microservices?
+Design an e-commerce backend system.
+How do you ensure fault tolerance in distributed systems?
+Explain the difference between synchronous and asynchronous communication.
+What are Kafka and MQTT? Compare their use cases.

@@ -1,0 +1,13 @@
+1) SQL
+Structured query language, declarative programming language, for managing relation database.
+used for data retrival, data manipulation, and database admistration.
+
+2) types of SQL
+
+a) DQL : data query language
+to query the data within table
+ex: Select, Where, having, join, limit, group by, order by, from
+
+b) DDl: Data definitaion language
+manage the structure for database , including table and constraints
+ex: Craete table, Alter table, 
