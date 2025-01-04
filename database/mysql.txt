@@ -1,0 +1,109 @@
+//select query
+
+select name, age, firstname + ' ' + secondname As fullname from employee where age > 25;
+
+//craete table
+
+Create table user (
+   id INT Auto_increment primary key,
+   name varchar(100) not null,
+   age INT NOT NULL check(age > 0),
+   email varchar(100) unique,
+   department_id INT,
+   Foreign key (department_id) references department(id)
+);
+
+create table department (
+id INT Auto_increment primary key,
+name VARCHAR(100) not null,
+);
+
+//drop the table
+drop table department
+
+//Alter the table
+alter table department Add column address varchar(255) not null;
+alter table user Add contraint fk_dept Foreign key (department_id) references department(id);
+alter table user drop column address;
+
+//rename a column
+alter table user change column name full_name varchar(100);
+
+//rename a table
+alter table user rename to staff;
+
+
+//drop :
+drops table, database, constraints, index, view, trigger, procedure, function
+
+
+//two types of subquery: coreleted and non coreleted
+
+//delete commands: delete perticular row based on the condition
+delete from user where age > 30;
+
+//truncate: deletes all rows from a table, but keeps the table structure, cant be roll back
+truncate table user;
+
+//drop : delete the entire table including structure
+
+// Sql injection prevention:
+
+1) use parameterized queries:
+// vulnerable query
+const query = 'Select * from user where name = ${username} and password = ${password}';
+
+// secure query
+const query = 'Select * from user where name = ? and password = ?';
+const values = [username, password];
+
+connection.execute(query, values, (err,results) => {
+   if (err) throw err;
+   console.log(results);
+})
+
+2) use ORM(object reletional mapping) libraries: 
+use libraries like sequelize, prisma or typeOrm
+
+3) validate and sanitize input
+
+4) use escaping machanism:
+
+5) use stored procedure:
+create procedure GetUser(In username varchar(30), In password varchar(30))
+Begin
+  select * from users where username = username and password = password;
+End
+
+call in node js:
+
+const query = 'CALL GetUser(?,?)';
+
+connection.execute(query, [username, password], (err, results) => {
+   if (err) throw err;
+   console.log(results);
+})
+
+6) in backend use pool library
+
+const {pool} = require('pg');
+
+const query = 'Select * from from username = $1 and password = $2';
+
+const res = await pool.query(query,[username, password]);
+
+
+//limit : limit the number of rows
+//offset : skips the specific no. of rows
+
+// case 
+select name, 
+
+case 
+   when age < 18 then 'not a voter'
+   when age between 18 and 65 then 'voter'
+   else 'eligible to vote'
+end as text from user;
+   
+
+

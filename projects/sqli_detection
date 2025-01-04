@@ -1,0 +1,31 @@
+Project overview:
+SQli is a machine learning predictive model to classify whether query is sql injection or not.
+
+Problem statement:
+we have provided dataset by our mentor , data are scraped from the web. first we need to clean the data,
+tokenize it and convert sentences to bag of words , remove stopwords:
+
+Proposed solution:
+logistic regression, decision tree classifier, supprt vector machine and random forest algorithm.
+Your role:
+data cleaning and random forest algorithm implementation, hyperparameter tuning using gridsearchcv,
+to avoid overfitting used cross validation (gridsearchcv)
+
+Technology and tools:
+google collab, python, numpy, countVetorizer to tokenize text efficiently
+
+Impact and achieve ment
+
+Team collaboration
+Learning and development
+
+------------------------------
+
+Project overview:
+Problem statement
+Proposed solution
+Your role
+Technology and tools
+Impact and achieve ment
+Team collaboration
+Learning and development

@@ -49,4 +49,20 @@
     }
     fun1(fun2);
 
+//promise example
+
+        const myPromise = new Promise((res,rej) =>{
+            let x = true;
+            if (x) {
+                res(x);
+            }
+            else{
+                rej("Some error occured");
+            }
+        });
+            
+            myPromise
+            .then((res) => console.log(`it is ${res}`))
+            .catch((rej)=> console.log(rej));
+
 

@@ -1,3 +1,4 @@
+/*
 1) closures: function that remembers the lexical enviornment, even outer function has completed 
 its excution closure allows function to access the variable.
 ex: to count the no of request per user:
@@ -74,7 +75,7 @@ example 2 : to memoize the result
                 throw new Error("user not found");
             }
             return user;
-            }
+        }
             catch (error){
                 console.error("error fetching result");
                 throw error;
@@ -94,3 +95,106 @@ example 2 : to memoize the result
         app.listen(3000, () =>{
             console.log("App listening on port 3000");
         }
+*/
+//on frontend 
+//app.js
+/*
+        import React from "react";
+        import UserComponent from "./UserComponent";
+
+        const App = () => {
+        return (
+        <div>
+            <h1> Dynamic user fetcher</h1>
+            <UserComponent />
+        </div>
+        );
+        };
+*/
+//UserComponent.js
+/*
+import React, {useEffect, useState} from 'react';
+
+const userComponent = () => {
+    const [userId, setUserId] = useState('');
+    const [userData, setUserData] = useState(null);
+    
+}
+*/
+/* 
+
+
+let obj = {
+    a:'valueA',
+    b: {
+        c: 'valueB',
+        d: {
+            e: 'valueE'
+        }
+    }
+}
+
+const flaten = (obj) => {
+    let result = [];
+    const solve = (curr, currPath) => {
+        for(let key in curr){
+            const newpath = currPath ? `${currPath}.${key}` : key;
+            if(typeof curr[key] === "object" && curr[key] !== null){
+                solve(curr[key],newpath);
+            }else{
+                result.push({path:newpath, value: curr[key]});
+            }
+        }
+    }
+    solve(obj,"");
+    return result;
+}
+console.log(flaten(obj))
+
+output :
+
+[
+  { path: 'a', value: 'valueA' },
+  { path: 'b.c', value: 'valueB' },
+  { path: 'b.d.e', value: 'valueE' }
+]
+
+*/
+//javascript arrays
+/*
+let arr = [];
+let arr = new Array(5);
+let arr = new Array(1,2,3,4,5);
+let arr = [1,2,3,4,5];
+let arr = Array(5).fill(0);
+let arr = new Array(5).fill().map((_,idx) => idx+1); // creates array [1,2,3,4,5]
+let arr1 = arr; // craete deep copy => arr1 is alias of arr 
+let arr1 = [...arr]; // create shallow copy => arr1 is different from arr
+
+*/
+
+//javascript iterables
+/*
+Js iterable are those who implements Symbol.iterator method and can be called with next() method
+
+we can use for..of loop and Array.from() method to iterate over iterable objects
+
+example of iterable:
+1) Array 2) String 3) Map 4) Set 
+example of non iterable:
+1) Number 2) Function 3) Object 4) Boolean
+
+itrete an object:
+
+let obj = {a:1, b:2, c:3};
+for(let key in obj){
+    console.log(key, obj[key]);
+}
+        or
+let obj = {a:1,b:2,c:3};
+let entries = Object.entries(obj);
+for(let [key,value] of entries){
+    console.log(key,'->',value);
+}
+
+*/

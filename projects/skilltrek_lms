@@ -1,0 +1,27 @@
+Project overview:
+    Skilltrek lms is a learning management system, which has feature to log in for employees and admin, admin can create user, upload training videos, manage test, assign test to the employees. And employees can take test, watch training videos, check their test score. 
+
+Problem statement:
+    Implement otp based password recovery system, migration of frront end to nginx, set up aws for uploading of media contents such as images, videos. 
+
+Proposed solution
+    Forget password otp-> leverage node js nodemailer library
+    nodemailer.createTransport
+    Transport.sendMail
+
+    for password hashing used bcrypt library. 
+    Media upload for files;
+    Used aws s3 for uploaded and retrieving large files and small files.
+    S3.upload, s3.uploadPart
+
+Your role
+    Role based otp, s3 backet, nginx setup
+    Technology and tools
+    Noidmailer library, aws sdk
+
+Impact and achieve ment
+
+Team collaboration
+
+Learning and development
+

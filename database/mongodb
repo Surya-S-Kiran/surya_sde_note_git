@@ -1,0 +1,19 @@
+//insert one
+db.collection.insertOne({name : 'surya', age : 25, email : 'surya@gmail.com'})
+
+//insert many
+db.collection.insertMany([
+    {name : 'surya', age : 25},
+    {name : 'surya', age : 25},
+    {name : 'surya', age : 25}
+])
+
+//find
+db.collection.find({name : 'surya'})
+
+//How do you find documents with a specific condition?
+db.collection.find({ age
+     : { $gt : 25 } })
+
+//How do you update documents in a collection?
+db.collection.updateOne({city: '$city'}, { $set:{city:  "NYC" }})
