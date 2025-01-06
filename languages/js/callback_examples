@@ -65,4 +65,89 @@
             .then((res) => console.log(`it is ${res}`))
             .catch((rej)=> console.log(rej));
 
+// promise example with api simulation
+
+function getUserData(userId){
+    return new Promise((resolve,reject) => {
+        console.log("fetching data...");
+        setTimeout(() =>{
+            if (userId){
+                resolve({id:userId,name: "surya", age: 25});
+            }else{
+                reject("User id not exist");
+            }
+        },2000)
+    })
+}
+let userid = 100;
+getUserData(userid)
+ .then((res) => console.log(res))
+ .catch((err) => console.log('Error occured : ',err));
+
+ /*
+
+ //node.js
+
+ const express = require('express');
+ const app = express();
+
+ app.get('api/users/:id',(res,req) => {
+    
+    const {id} = req.params;
+
+    if(id){
+    res.status(200).json({id: id, name: "surya", age: 25});
+    }else{
+    res.status(404).json({error: "User not found"});
+    }
+
+});
+
+ app.listen(3000, () => console.log('Server is running on port 3000'));
+
+
+ //frontend react.js
+
+import React, {useState, useEffect} from 'react';
+
+const userComponents = () => {
+
+    const [userid, setuserId] = useState('');
+    const [userData, setUserData] = useState({});
+    const [error, setError] = useState('');
+
+    const fetchUserData = async () => {
+        try{
+      const response = fetch('http://localhost:3000/api/users/${userid}');
+      if(!response.ok){
+      throw new Error("Error fetching user data");
+      }
+      const data = await response.json();
+      setUserData(data);
+      setError('');    
+
+}catch(e){
+
+setError(e.message);
+}
+}
+return (
+  <div>
+  <input type="text" value={userid} onChange={(e) => setUserId(e.target.value)}/>
+  <button onClick={fetchUserData}>Fetch User</button>
+  {userData && (
+     <div>
+     <h2>User Data</h2>
+     <p>ID: {userData.id}</p>
+     <p>Name: {userData.name}</p>
+     <p>Age: {userData.age}</p>
+     </div>
+  )}
+     {error && <p style={{color: 'red'}}>{error}</p>}
+  </div>
+)
+}
+
+ */
+
 
