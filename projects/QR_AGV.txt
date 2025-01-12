@@ -1,0 +1,22 @@
+Project overview:
+This project was an interface for interacting with Qr agv robot. This was a react native app by which we can control the qr agv by joystick, we can 
+input the csv path file and select source and destination from the grid , it keep tracks of the agv current location and interact with robot in real time.
+
+Problem statement:
+design a cross plateform app that can control the robot in real time,
+design the system that can manage real time communication as much fast,
+calculate the shortest path while avoiding the obstacles,
+accelarates the data retrival from robot.
+
+Proposed solution:
+for cross plateform mobile devices app we have choosen react native beacuse of its smooth ui and cross plateform,
+to establish real time communication we have used socket.io js libary for duplex connection,
+to calculate the shortest path i have implemented bfs based path finding algorithm.
+to accelarates the data retrival we introduced redis caching with fastapi.
+
+Your role:
+
+Technology and tools
+Impact and achieve ment
+Team collaboration
+Learning and development

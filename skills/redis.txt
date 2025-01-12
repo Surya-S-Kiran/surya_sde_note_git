@@ -1,0 +1,8 @@
+redis : Remote dictionary server
+
+it is in memory data structure(key,value) store that support different data structure such string, hashes, lists, sets and sorted sets.
+perfect for chaching, session management, pub/sub application and leaderboards.
+
+redis is single  threded,
+2 types of persistent in redsi: 
+a) RDB (redis databse backup) b) AOF (Append only file)
