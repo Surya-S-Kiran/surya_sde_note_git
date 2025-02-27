@@ -1,0 +1,14 @@
+//craetional design pattern
+
+Factory method :
+follows two of the SOLID principle -> 
+Single responsibility method (class should only have one reason to change)
+Open/closed principle: open for extension but closed for modification.
+
+4 things are there:
+1) Creator interface : VehicleFactory
+2) concrete Creator : TwoWheelerFactor, FourWheelerFactor
+3) Producer interface : Vehicle
+4) Concrete Products : TwoWheeler, FourWheeler
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,175 @@
+I have SpotifyApp class where main class defined.
+current project structure is like that:
+src:
+ SpootifyAudiobook.java 
+ SpootifyContent.java
+ SpootifyMenu.java
+ SpootifyMusic.java
+ SpootifyPlaylist.java
+ SpootifyPodcast.java
+ SpotifyApp.java
+ 
+ 1)In main function there is:
+   an object of SpootifyMenu class created, there
+   are 8 options:
+   1) fill librabry 2) List the content of the library
+   3) Display library info 4) add new playlist
+   5) Delete a playlist 6) add content to playlist
+   7) List Play list 8) Exit
+
+option1: 
+addToPlaylist() called:
+
+There are basically 3 types of contents a) music 
+ b) Podcast c) Audiobook
+ 
+ option-a: 
+ menu.getPlaylist(playlistTitle).addContent(createMusic(dataScanner));
+createMusic() -> returns SpootifyMusic object
+
+option-b:
+ menu.getPlaylist(playlistTitle).addContent(createPodcast(dataScanner));
+ createPodcast() -> returns SpootifyPodcast object
+option-c:
+menu.getPlaylist(playlistTitle).addContent(createAudioook(dataScanner));
+createAudiobook() -> returns SpootifyAudiobook object
+
+option2:
+showPlaylistContent() called:
+
+same as above but showing purpose:
+option-a:
+menu.getPlaylist(playlistTitle).filterBy(true, false, false);
+option-b:
+menu.getPlaylist(playlistTitle).filterBy(false, true, true);
+option-c:
+menu.getPlaylist(playlistTitle).filterBy(false, false, true);
+
+can we optimize this;
+
+option3:
+myMenu.getPlaylist("library").getDescription() called
+
+option4:
+createPlaylist(dataScanner, myMenu): called
+menu.addPlaylist(playlistTitle);
+
+here Map data structure is used
+private Map<String, SpootifyPlaylist> playlists;
+playlists.put(playlistTitle, new SpootifyPlaylist(playlistTitle));
+
+option5:
+deletePlaylist(dataScanner, myMenu): is called
+menu.removePlaylist(playlistTitle);
+
+option-6:
+ if(myMenu.playlistExists(playlistTitle)) addToPlaylist(dataScanner, playlistTitle, myMenu);
+ 
+ option7:
+ showPlaylists(dataScanner, myMenu);
+ 
+ option8:
+ exit()
+ 
+ SpootifyAudiobook.java : 
+ SpootifyContent.java : abstract class ,parent class of ,SpootifyPlaylist,SpootifyMusic,SpootifyAudiobook, SpootifyPodcast
+ SpootifyMenu.java
+ SpootifyMusic.java
+ SpootifyPlaylist.java
+ SpootifyPodcast.java
+ SpotifyApp.java
+ --------------------------------------------------
+
+Design Mistakes & Optimizations:
+Class Naming Inconsistencies:
+
+Correct typos like Spootify to Spotify for clarity and professionalism.
+Single Responsibility Principle (SRP):
+
+The SpootifyMenu class seems to handle multiple responsibilities (UI, business logic, etc.). Refactor it into:
+MenuHandler for UI interactions.
+PlaylistService for business logic.
+ContentService for content-related operations.
+Tight Coupling:
+
+Direct calls like menu.getPlaylist(playlistTitle).addContent(...) tightly couple classes. Introduce interfaces like IPlaylistService to promote loose coupling.
+Magic Booleans:
+
+Methods like filterBy(true, false, false) are unclear. Replace with an enum:
+java
+Copy
+Edit
+public enum ContentType { MUSIC, PODCAST, AUDIOBOOK }
+menu.getPlaylist(playlistTitle).filterBy(ContentType.MUSIC);
+Data Structure Optimization:
+
+Using a Map for playlists is efficient for lookups. Consider using ConcurrentHashMap for thread-safe operations if introducing multithreading.
+Advanced Java Concepts to Add:
+Multithreading:
+
+Scenario: Load playlist content asynchronously for faster UI.
+Implementation:
+java
+Copy
+Edit
+ExecutorService executor = Executors.newFixedThreadPool(3);
+executor.submit(() -> menu.showPlaylistContent("library"));
+executor.shutdown();
+Concurrency Utilities:
+
+Use Future or CompletableFuture for better asynchronous handling:
+java
+Copy
+Edit
+CompletableFuture.runAsync(() -> menu.addToPlaylist(dataScanner, "Chill Beats"));
+Observer Design Pattern (Event-Driven Updates):
+
+Notify the UI whenever a playlist is updated without tight coupling:
+java
+Copy
+Edit
+interface PlaylistObserver {
+    void update(String playlistTitle);
+}
+Stream API:
+
+Replace traditional loops with concise streams:
+java
+Copy
+Edit
+playlists.values().stream()
+         .filter(playlist -> playlist.getTitle().contains("Chill"))
+         .forEach(System.out::println);
+SOLID Principles & Design Patterns:
+
+Apply Factory Pattern for content creation:
+java
+Copy
+Edit
+ContentFactory.create(ContentType.MUSIC, dataScanner);
+Java Reflection API:
+
+Dynamically load content types without hardcoding:
+java
+Copy
+Edit
+Class<?> clazz = Class.forName("com.spotify." + contentType);
+Object obj = clazz.getDeclaredConstructor().newInstance();
+Database Integration (Optional for Real-World Use):
+
+Integrate with SQLite or MySQL for persistent playlist storage. 
+ 
+
+ ----------------------------------------------------------------------------------------
+ Step 1: Implementing Factory Pattern for Content Creation
+Problem:
+Your current method for adding content to playlists has repetitive code:
+
+java
+Copy
+Edit
+menu.getPlaylist(playlistTitle).addContent(createMusic(dataScanner));
+menu.getPlaylist(playlistTitle).addContent(createPodcast(dataScanner));
+menu.getPlaylist(playlistTitle).addContent(createAudiobook(dataScanner));
+Each content type has its own creation method (createMusic(), createPodcast(), etc.), leading to code duplication.
+

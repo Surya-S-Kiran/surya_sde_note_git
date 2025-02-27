@@ -1,0 +1,49 @@
+=> what is jwt?(Json web tokens)
+
+jwt is compact (small and concise made with three parts separeted by dots => header.payload.Signature),
+Url safe token(encoded by Base64URL)
+used to represent claims btw two parties.
+
+how jwt works:
+1) user send login request -> sends login credentials email and password to the server
+2) server verifies the credentials: verifies the credentials against the database
+3) server generates the jwt: upon successful verification server generates the jwt
+4) server responds with generated jwt token to client
+5) store jwt : user store jwt in local storage or cookies
+6) the client include the jwt in the http authorization header
+7) server recieve request : extract jwt from authorization header
+8) verify jwt : validates the tokens Signature using the secret/public key.
+9) grant or dany access: if valid then grant otherwise dany access
+
+---------------------------------------------------------------------------------------------------
+there are two types of authentication approaches:
+1) sessison based authentication system:(stateful)
+tools: express-sessison , connect mongo(or any session store like redis)
+why: Session are stored on the server
+useful for server side rendering applications
+
+2) Token based authentication:(stateless => system does not reatin any information fro previous interaction)
+tools: jwt, oauth2rize
+they are stateless , suitable for single page application and API. in can be stored in localstorage or cookies.
+Restful Api or microservices
+
+
+-----------------------------------------------
+what is cookies:
+A cookie is a text file containing data in the form of key-value pairs
+ (e.g., user_id=12345) that is stored in the user's browser.
+used to remember information about the user such as dark mode 
+usage:
+session management: 
+Keeping users logged in after they authenticate,
+Personalization:
+Remembering language settings, dark/light mode, or other UI preferences.
+JWT tokens stored in cookies for secure access to protected routes.
+Cookies vs Local Storage vs Session Storage
+cookeis are accesible by both server and client, but local storage and session storage
+are not.
+
+HttpOnly cookies cannot be accessed via JavaScript, which prevents XSS attacks.
+How can you secure cookies?
+ Use Secure, HttpOnly, and SameSite attributes. Additionally, encrypt sensitive data in cookies.
+

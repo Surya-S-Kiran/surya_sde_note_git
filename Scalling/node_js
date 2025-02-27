@@ -1,0 +1,10 @@
+3 types of scaling:
+1) x axis : cloning and load balancing(monolithic)
+2) y axis : decomposing by services/functionality (microservices)
+3) z axis : splitting by data partioning
+
+cloning and load balancing(monolithic):
+
+cluster core module:
+simplifies forking of application and automatically distribute it:
+uses round robin load balancing algorithm

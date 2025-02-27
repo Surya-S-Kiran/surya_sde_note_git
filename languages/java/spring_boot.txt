@@ -1,0 +1,10 @@
+1) You need to prevent API abuse by implementing a rate limiter in Spring Boot.
+·       How would you implement it?
+·       Which algorithms would you use? (Token Bucket vs. Leaky Bucket)
+·        How can Redis help in rate limiting?
+
+Your system expects 1M+ requests per second during peak load.
+·       How do you scale your system?
+·       What caching mechanisms would you implement?
+·       How do you handle sudden traffic spikes?
+

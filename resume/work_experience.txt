@@ -1,0 +1,95 @@
+1. Basics of RESTful APIs:
+What is a RESTful API?
+What are the key principles of REST architecture?
+What are the common HTTP methods used in REST APIs?
+How do you ensure idempotency in RESTful APIs?
+What is the difference between PUT and PATCH requests?
+What are status codes in REST APIs? Can you explain some commonly used ones (200, 201, 400, 401, 404, 500)?
+2. Spring Boot & Node.js Fundamentals:
+What is Spring Boot, and how does it differ from the traditional Spring framework?
+What is Node.js, and how does it handle asynchronous operations?
+How do you set up a basic REST API in Spring Boot?
+How do you create RESTful APIs using Express.js in Node.js?
+What are middleware functions in Node.js?
+3. Database (PostgreSQL) Integration:
+How do you connect PostgreSQL with Spring Boot?
+How do you handle database operations in Node.js with PostgreSQL?
+What is connection pooling, and how does it improve performance?
+How do you optimize SQL queries to reduce response times?
+4. API Optimization Techniques:
+What techniques did you use to reduce response times by 30%?
+How do you implement caching in REST APIs?
+What is pagination, and why is it important for API performance?
+How do you minimize the load on the database when dealing with large datasets?
+How do you handle N+1 query problems?
+5. Microservices Architecture:
+What is a microservice, and how does it differ from a monolithic architecture?
+How did you design your microservices for scalability?
+How do microservices communicate with each other? What protocols did you use?
+What challenges did you face while working with microservices, and how did you overcome them?
+How do you manage service discovery in microservices?
+6. Security in RESTful APIs:
+How do you secure RESTful APIs in Spring Boot and Node.js?
+What is JWT, and how do you implement it for authentication?
+How do you prevent common vulnerabilities like SQL Injection, XSS, and CSRF in REST APIs?
+How do you manage API rate limiting to prevent abuse?
+7. Error Handling & Monitoring:
+How do you implement error handling in REST APIs?
+What is structured logging, and how does it help in debugging microservices?
+How do you monitor the performance of your APIs in production?
+8. Scalability & Performance:
+What strategies did you use to improve system scalability?
+How do you scale microservices horizontally and vertically?
+What is load balancing, and how does it work with microservices?
+How do you perform stress testing on your APIs?
+9. Deployment & CI/CD:
+How do you containerize microservices using Docker?
+What CI/CD tools did you use to automate deployments?
+How do you manage environment configurations in different stages (development, testing, production)?
+10. Advanced Topics:
+What is eventual consistency, and how do you handle it in microservices?
+How do you implement distributed tracing in microservices?
+What is the Circuit Breaker pattern, and when would you use it?
+How do you handle API versioning in microservices?
+Explain the role of API Gateways in microservice architecture.
+
+
+
+
+
+-----------------------------------------------------------
+General & System Design Questions:
+How did you optimize architectures in your projects? Can you walk us through a specific example of how you addressed memory leaks or API failures?
+How do you approach designing scalable web applications? What architectural patterns do you follow?
+Can you explain a scenario where database inefficiencies impacted performance, and how you resolved them?
+How would you design a high-availability system using AWS?
+What caching strategies have you used to optimize performance?
+Backend & API Optimization:
+How did you optimize RESTful APIs and microservices using Spring Boot and Node.js? What tools or profiling techniques did you use?
+How do you handle long-running processes in microservices?
+Have you implemented API rate limiting or throttling? How?
+How do you monitor API performance, and what metrics do you track?
+How do you handle authentication and authorization in microservices?
+Security & Access Management:
+How did implementing RBAC improve access management? Can you explain your RBAC implementation?
+How do you secure RESTful APIs? What best practices do you follow?
+Have you worked with OAuth2 or JWT for authentication? How do they compare?
+How do you protect sensitive data in a database or while transmitting over a network?
+Database Optimization & Firebase:
+What specific changes did you make to the Firebase schema to decrease database reads?
+How do you optimize queries in MongoDB and PostgreSQL?
+What indexing strategies have you used in databases to improve performance?
+How do you handle database migrations in large applications?
+What are the trade-offs between SQL and NoSQL databases?
+AWS, Docker & CI/CD:
+Why did you choose AWS S3 for media storage? How did it improve data retrieval speed?
+Can you walk through your CI/CD pipeline setup using GitHub Actions, Maven, and Jenkins?
+How do you handle environment-specific configurations in Dockerized applications?
+Have you worked with Kubernetes for container orchestration?
+How do you ensure zero-downtime deployments in CI/CD pipelines?
+Testing & Agile Development:
+How did you improve test coverage by 60%? What challenges did you face in writing tests?
+What’s your approach to writing effective unit and integration tests?
+Can you explain a time when a test suite prevented a major issue in production?
+How do you ensure code quality in Agile teams?
+How do you conduct efficient code reviews?

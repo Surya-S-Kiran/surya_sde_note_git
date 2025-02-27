@@ -197,4 +197,19 @@ for(let [key,value] of entries){
     console.log(key,'->',value);
 }
 
+Q) Difference between null and undefined:
+In JavaScript, null and undefined are distinct data types used to represent the absence of a value.
+
+undefined: represents a variable that is declared but not yet assigned any value, 
+datatype : primitive type
+
+null : represents intensional absence of a value or object
+datatype is : object
+takes very small amount of memory.
+
+null == undefined // true
+null ==== undefined // false
+
+
+
 */
